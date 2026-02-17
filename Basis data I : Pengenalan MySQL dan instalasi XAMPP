@@ -1,0 +1,71 @@
+C:\Users\kenji>CD C:\xampp\mysql\bin
+
+C:\xampp\mysql\bin>mysql -u root -p
+Enter password:
+Welcome to the MariaDB monitor.  Commands end with ; or \g.
+Your MariaDB connection id is 10
+Server version: 10.4.32-MariaDB mariadb.org binary distribution
+
+Copyright (c) 2000, 2018, Oracle, MariaDB Corporation Ab and others.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+MariaDB [(none)]> SHOW DATABASES;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| mysql              |
+| performance_schema |
+| phpmyadmin         |
+| test               |
++--------------------+
+5 rows in set (0.007 sec)
+
+CREATE DATABASE IF NOT EXISTS SIKEN;
+Query OK, 1 row affected (0.004 sec)
+
+MariaDB [(none)]> SHOW DATABASES;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| mysql              |
+| performance_schema |
+| phpmyadmin         |
+| siken              |
+| test               |
++--------------------+
+6 rows in set (0.001 sec)
+
+MariaDB [(none)]> USE siken
+Database changed
+
+MariaDB [siken]> create table mahasiswa (
+    -> NPM char(5) NOT NULL PRIMARY KEY,
+    -> nama varchar(20) NOT NULL,
+    -> tempat_lahir DATE NOT NULL,
+    -> no_hp varchar(25)
+    -> );
+Query OK, 0 rows affected (0.030 sec)
+
+MariaDB [siken]> show tables
+    -> ;
++-----------------+
+| Tables_in_siken |
++-----------------+
+| mahasiswa       |
++-----------------+
+1 row in set (0.001 sec)
+
+MariaDB [siken]> DESC mahasiswa;
++--------------+-------------+------+-----+---------+-------+
+| Field        | Type        | Null | Key | Default | Extra |
++--------------+-------------+------+-----+---------+-------+
+| NPM          | char(5)     | NO   | PRI | NULL    |       |
+| nama         | varchar(20) | NO   |     | NULL    |       |
+| tempat_lahir | date        | NO   |     | NULL    |       |
+| no_hp        | varchar(25) | YES  |     | NULL    |       |
++--------------+-------------+------+-----+---------+-------+
+4 rows in set (0.023 sec)
+
