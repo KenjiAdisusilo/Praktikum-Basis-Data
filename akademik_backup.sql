@@ -47,12 +47,13 @@ DROP TABLE IF EXISTS `mahasiswa`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `mahasiswa` (
-  `NPM` int(10) NOT NULL,
-  `Nama` char(30) NOT NULL,
-  `Jenis_Kelamin` enum('L','p') DEFAULT NULL,
-  `No_HP` int(12) NOT NULL,
-  `Email` varchar(30) NOT NULL,
-  `Semester` varchar(10) DEFAULT NULL
+  `NPM` char(5) NOT NULL,
+  `Nama` varchar(25) NOT NULL,
+  `Tempat_Lahir` varchar(30) NOT NULL,
+  `Tanggal_Lahir` date NOT NULL,
+  `Jenis_Kelamin` enum('l','p') NOT NULL,
+  `No_HP` varchar(25) NOT NULL,
+  PRIMARY KEY (`NPM`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -62,6 +63,7 @@ CREATE TABLE `mahasiswa` (
 
 LOCK TABLES `mahasiswa` WRITE;
 /*!40000 ALTER TABLE `mahasiswa` DISABLE KEYS */;
+INSERT INTO `mahasiswa` VALUES ('001','Zee Asadel','Tanggerang','2004-04-12','p','08112121415'),('002','Kenji Adisusilo','Depok','2005-09-30','l','08132425415'),('003','Jessica Tamara','Jakarta','2005-06-02','p','08232523415'),('005','Jefi Nichole','Depok','2005-09-30','l','08132123425');
 /*!40000 ALTER TABLE `mahasiswa` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -98,4 +100,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2026-02-20 15:38:58
+-- Dump completed on 2026-03-03 16:52:08
